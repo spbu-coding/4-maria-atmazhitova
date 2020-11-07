@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
 	parse_arguments(argc, argv, files_names);
 	struct BMP_t pictures[2];
 	for (int i = 0; i < 2; i++) {
-		pictures[i] = read_BMP(files_names[i]);
+		read_BMP(files_names[i], &pictures[i]);
 	}
 
 	struct coord_t coords_of_mismatching_pixels[100];

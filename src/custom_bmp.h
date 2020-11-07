@@ -8,7 +8,7 @@
 
 const unsigned int BITMAPFILEHEADER_SIZE = 14;
 const unsigned int BITMAPINFOHEADER_SIZE = 40;
-const unsigned int BITMAPHEADER_SIZE = BITMAPFILEHEADER_SIZE + BITMAPINFOHEADER_SIZE;
+const unsigned int BITMAPHEADER_SIZE = 54;
 const unsigned int BFTYPE_SIZE = 2; 
 const unsigned int BFSIZE_SIZE = 4;
 const unsigned int BFRESERVED_SIZE = 4;
@@ -425,7 +425,7 @@ void read_BMP_pixel_array_8bpp(FILE *file, struct BMP_t *picture) {
 		}
 		for (int j = 0; j < picture->width; j++) {
 			unsigned char color_number;
-			reading_result = sscanf(current_buffer_pos, "%c", color_number);
+			reading_result = sscanf(current_buffer_pos, "%c", &color_number);
 			if (reading_result != (int)(BYTES_PER_PIXEL_8BPP)) {
 				fprintf(stderr, "Could not read pixel with coords (%d, %d)\n", j, i);
 				exit(-2);
@@ -807,7 +807,7 @@ void save_BMP_pixel_array_8bpp(FILE *file, struct BMP_t *picture) {
 	for (int32_t i = 0; i < abs_of_height; i++) {
 		for (int32_t j = 0; j < picture->width; j++) {
 			char color_number = picture->pixel_array_8bpp[i][j];
-			writing_result = sprintf(current_buffer_pos, "%c", color_number);
+			writing_result = sprintf(current_buffer_pos, "%c", &color_number);
 			if (writing_result != BYTES_PER_PIXEL_8BPP) {
 				fprintf(stderr, "Could not write pixel with coords (%d, %d) to buffer\n", j, i);
 				exit(-2);
