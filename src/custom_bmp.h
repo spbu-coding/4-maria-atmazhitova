@@ -807,7 +807,7 @@ void save_BMP_pixel_array_8bpp(FILE *file, struct BMP_t *picture) {
 	for (int32_t i = 0; i < abs_of_height; i++) {
 		for (int32_t j = 0; j < picture->width; j++) {
 			char color_number = picture->pixel_array_8bpp[i][j];
-			writing_result = sprintf(current_buffer_pos, "%c", &color_number);
+			writing_result = sprintf(current_buffer_pos, "%c", color_number);
 			if (writing_result != BYTES_PER_PIXEL_8BPP) {
 				fprintf(stderr, "Could not write pixel with coords (%d, %d) to buffer\n", j, i);
 				exit(-2);
