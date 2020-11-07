@@ -846,4 +846,3 @@ int	WriteUSHORT( USHORT x, FILE* f )
 
 	return ( f && fwrite( little, 2, 1, f ) == 1 );
 };
-
