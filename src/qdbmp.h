@@ -121,5 +121,5 @@ const char*		BMP_GetErrorDescription		();
 	}
 
 
-#include"qdbmp.c"
+// there was '#include"qdbmp.c", but it caused conflicts and was removed
 #endif
