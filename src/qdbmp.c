@@ -1,4 +1,4 @@
-#include "qdbmp.h"
+// here was #include "qdbmp.h", but it caused conflicts and was removed
 #include <stdlib.h>
 #include <string.h>
 
