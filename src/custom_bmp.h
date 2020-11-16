@@ -688,7 +688,7 @@ void save_BMP_pixel_array_8bpp(FILE *file, struct BMP_t *picture) {
 	if (abs_of_height < 0) {
 		abs_of_height *= -1;
 	}
-	int32_t amount_of_extra_bytes = 4 - picture->width % 4, width_of_row_in_bytes = picture->width + amount_of_extra_bytes;
+	int32_t amount_of_extra_bytes = (4 - picture->width % 4) % 4, width_of_row_in_bytes = picture->width + amount_of_extra_bytes;
 	
 	unsigned int buffer_size = abs_of_height * width_of_row_in_bytes * sizeof(unsigned char);
 	unsigned char *buffer = (unsigned char *)(malloc(buffer_size));
