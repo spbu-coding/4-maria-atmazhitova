@@ -31,6 +31,22 @@ struct color_t convert_color_to_negative(struct color_t color) {
 	return result;
 }
 
+bool check_if_string_ends_with(char *string, char *possible_suffix) {
+	if (strlen(possible_suffix) > strlen(string)) {
+		return 0;
+	}
+	if (strlen(string) == 0 || strlen(possible_suffix) == 0) {
+		return 1;
+	}
+	char *string_end = string + strlen(string) - 1, *possible_suffix_end = possible_suffix + strlen(possible_suffix) - 1;
+	for (unsigned int i = 0; i < strlen(possible_suffix); i++) {
+		if (*(possible_suffix_end - i) != *(string_end - i)) {
+			return 0;
+		}
+	}
+	return 1;
+}
+
 bool check_if_colors_are_equal(struct color_t color1, struct color_t color2) {
 	return (color1.red == color2.red && color1.green == color2.green && color1.blue == color2.blue);
 }

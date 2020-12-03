@@ -4,22 +4,6 @@
 #include "qdbmp_negative.h"
 #include "custom_bmp.h"
 
-bool check_if_string_ends_with(char *string, char *possible_suffix) {
-	if (strlen(possible_suffix) > strlen(string)) {
-		return 0;
-	}
-	if (strlen(string) == 0 || strlen(possible_suffix) == 0) {
-		return 1;
-	}
-	char *string_end = string + strlen(string) - 1, *possible_suffix_end = possible_suffix + strlen(possible_suffix) - 1;
-	for (unsigned int i = 0; i < strlen(possible_suffix); i++) {
-		if (*(possible_suffix_end - i) != *(string_end - i)) {
-			return 0;
-		}
-	}
-	return 1;
-}
-
 bool parse_arguments(int argc, char **argv[], bool *use_their_realization, char **input_file_name, char **output_file_name) {
 	if (argc < 4) {
 		fprintf(stderr, "Not enough command prompt arguments\n");
