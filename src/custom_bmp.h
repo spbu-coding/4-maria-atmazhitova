@@ -16,6 +16,8 @@ struct coord_t {
 
 struct color_t convert_color_to_negative(struct color_t color);
 
+bool check_if_string_ends_with(char *string, char *possible_suffix);
+
 bool check_if_colors_are_equal(struct color_t color1, struct color_t color2);
 
 uint32_t convert_uchar_array_to_uint32(unsigned char *array, bool uses_little_endian);
